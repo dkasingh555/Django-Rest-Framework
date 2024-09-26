@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rates</title>
+</head>
+
+<body>
+    <center>
+        <h1>Current Currency Rates</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Country</th>
+                    <th>From Currency</th>
+                    <th>To Currency</th>
+                    <th>Rate</th>
+                    <th>Last Update</th>
+                    <th>Symbol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through each exchange rate object in the exchange_rates list -->
+                {% for price_list in PriceList %}
+                <tr>
+                    <!-- Populate table cells with data from each exchange rate object -->
+                    <td>{{ price_list.id }}</td>
+                    <td>{{ price_list.Country }}</td>
+                    <td>{{ price_list.FromCur }}</td>
+                    <td>{{ price_list.ToCur }}</td>
+                    <td>{{ price_list.Rate }}</td>
+                    <td>{{ price_list.LastUpdate }}</td>
+                    <td>{{ price_list.Symbol }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
