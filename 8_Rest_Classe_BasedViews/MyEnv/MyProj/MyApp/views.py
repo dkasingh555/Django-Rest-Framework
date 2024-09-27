@@ -109,5 +109,13 @@ class School_Details(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
+
+
+
+
+
+    # This is Commnet for the Upcoming Data Resource in Python Django Rest Frame Work
+    
+
     
         
