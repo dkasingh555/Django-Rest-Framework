@@ -9,6 +9,9 @@ from MyApp.api_file.StuSerializers import StudentSerializers
 from MyApp.api_file.SchoolSerializers import SchoolSerializers
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.authentication import BasicAuthentication,SessionAuthentication
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
+
 
 # def index(respone):
 #     return HttpResponse("<h1>Welcome To Django Rest FrameWork<h1/>")
@@ -75,7 +78,16 @@ def Stu_details(request,pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class School(APIView):
-    def get(self,request):
+    # authentication_classes=[BasicAuthentication]
+    # permission_classes=[IsAuthenticated]
+    # permission_classes=[AllowAny]
+    # permission_classes=[IsAdminUser]
+
+    # authentication_classes=[SessionAuthentication]
+    # permission_classes=[IsAuthenticated]
+    # permission_classes=[IsAdminUser]
+
+    def get(self,request): 
         school=Schoollist.objects.all()
         serializer=SchoolSerializers(school,many=True)
         return Response(serializer.data)
@@ -110,11 +122,6 @@ class School_Details(APIView):
     
 
 
-
-
-
-
-    # This is Commnet for the Upcoming Data Resource in Python Django Rest Frame Work
     
 
     
